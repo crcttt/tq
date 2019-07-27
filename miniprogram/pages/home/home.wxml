@@ -1,0 +1,77 @@
+
+<view class='tq'>
+  <!-- 背景图 -->
+  <image class='bg' src='/images/clouds-forest-idyllic-417102.jpg'></image>
+
+  <!-- 搜索 -->
+  <view class='search' style='background:rgba(255, 255, 255, 0)'>
+    <view class='wrapper'>
+      <image src='/images/search.png'></image>
+      <input placeholder-class='placeholderClass' confirm-type='search' placeholder='请输入城市名，快速查询天气信息' maxlength='20'  value='{{searchText}}' bindinput='commitSearch'></input>
+    </view>
+  </view>
+
+  <!-- 预报 -->
+  <view class='cent'>
+    <!-- 城市 -->
+    <view class='ct'>
+      <image class='ctimg' src='/images/location_s_w.png'></image>
+      {{city}}
+      <view class='date'>{{date}}</view>
+    </view>
+    <view class='ctn'>{{tem}}</view>
+    <view class='ctw'>
+      <view class='ctwea'>{{wea}}</view>
+      <view class='kq'>
+        <text>湿度 {{humidity}}</text>
+      </view>
+      <view class='kq'>
+        <text>空气质量 {{air}} {{air_level}}</text>
+      </view>
+      <view class='kqt'>{{air_tips}}</view>
+    </view>
+  </view>
+  <!-- 小时 -->
+   <view class='guide'>
+    <view class='title'>小时天气</view>
+    <view class='hours'>
+      <view class='item' wx:for='{{sevendays[0].hours}}' wx:key='{{index}}'>
+        <view class='h-tem'>{{item.tem}}</view>
+        <view>
+          <text>{{item.wea}}</text>
+          <!-- <image class='tqimg' src=''></image> -->
+        </view>
+        <view>{{item.win}}{{item.win_speed}}</view>
+        <view>{{item.day}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 7日  -->
+  <view class='guide'>
+    <view class='title'>7 天预报</view>
+    <view class='seven'>
+      <view class='item' wx:for='{{sevendays}}' wx:key='{{index}}'>
+        <view>{{item.day}}</view>
+        <view class='h-tem'>{{item.tem2}}~{{item.tem1}}</view>
+        <view>
+          <text>{{item.wea}}</text>
+          <!-- <image class='tqimg' src=''></image> -->
+        </view>
+        <view>{{item.win[0]}}{{item.win_speed}}</view>
+        
+      </view>
+    </view>
+  </view>
+ 
+  <!-- 生活指数 -->
+  <view class='liveIndex'>
+    <view class='item' wx:for='{{liveIndex}}' wx:key='{{index}}' >
+      <image  class='icon' src='/images/lifestyle_{{index}}.png'></image>
+      <view class='right'>
+        <view wx:if="{{index!=1}}" class='key'>{{item.title}} {{item.level}}</view>
+        <view class='value'>{{item.desc}}</view>
+      </view>
+    </view>
+  </view>
+
+</view>
