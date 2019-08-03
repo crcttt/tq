@@ -7,7 +7,7 @@
   <view class='search' style='background:rgba(255, 255, 255, 0)'>
     <view class='wrapper'>
       <image src='/images/search.png'></image>
-      <input placeholder-class='placeholderClass' confirm-type='search' placeholder='请输入城市名，快速查询天气信息' maxlength='20'  value='{{searchText}}' bindinput='commitSearch'></input>
+      <input placeholder-class='placeholderClass' confirm-type='search' placeholder='请输入城市名，快速查询天气信息' maxlength='20'  value='{{searchText}}' bindconfirm='commitSearch'></input>
     </view>
   </view>
 
